@@ -1,11 +1,12 @@
 import { useState } from "react";
-
-const AddTutorial = () => {
+// import { nanoid } from "nanoid";
+const AddTutorial = ({ addTuto }) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
   const handleSubmit = (e) => {
-
+    e.preventDefault();
+    addTuto({ title: title, descrip: desc });
   };
 
   return (
