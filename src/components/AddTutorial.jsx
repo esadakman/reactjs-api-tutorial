@@ -1,12 +1,14 @@
 import { useState } from "react";
 // import { nanoid } from "nanoid";
-const AddTutorial = ({ addTuto }) => {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+const AddTutorial = ({ apiPost }) => {
+  const [myTitle, setMyTitle] = useState("");
+  const [myDesc, setMyDesc] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTuto({ title: title, descrip: desc });
+    apiPost({ title: myTitle, description: myDesc });
+    setMyTitle("");
+    setMyDesc("");
   };
 
   return (
@@ -22,8 +24,8 @@ const AddTutorial = ({ addTuto }) => {
             className="form-control"
             id="title"
             placeholder="Enter your title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={myTitle}
+            onChange={(e) => setMyTitle(e.target.value)}
             required
           />
         </div>
@@ -36,8 +38,8 @@ const AddTutorial = ({ addTuto }) => {
             className="form-control"
             id="desc"
             placeholder="Enter your Description"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
+            value={myDesc}
+            onChange={(e) => setMyDesc(e.target.value)}
             required
           />
         </div>

@@ -19,32 +19,35 @@ const Home = () => {
       console.log(err);
     }
   };
-  // ? useEffect sayesinde api'de bir değiiklik olduğunda ilgili kısmım renderlanıyor
+  // ? useEffect sayesinde sadece api'de bir değiiklik olduğunda ilgili kısmım renderlanıyor
   useEffect(() => {
     apiGet();
   }, []);
-  // ! apiPut
-  const apiPut = async () => {
+  // ! apiPost
+  const apiPost = async (newTuto) => {
+    console.log(newTuto);
     try {
-      const data = (await axios.put(url)).data;
-      console.log(data);
-      setTutorial(data);
+      // ! newTuto'dan gelen input bilgilerini post metoduyla (url, newTuto diyerek) apiye eklemiş olduk
+      await axios.post(url, newTuto);
     } catch (err) {
       console.log(err);
     }
+    apiGet();
   };
   // *_________________________
-  const addTuto = (newTuto) => {
-    const addNewTuto = { ...newTuto, id: nanoid() };
-    setAddTutorial([...addTutorial, addNewTuto]);
-  };
-  console.log(addTutorial);
+
+  // console.log(addTutorial);
   return (
     <>
-      <AddTutorial addTuto={addTuto} />
+      <AddTutorial apiPost={apiPost} />
       <TutorialList tutorial={tutorial} />
     </>
   );
 };
 
 export default Home;
+
+// const addTuto = (newTuto) => {
+//   const addNewTuto = { ...newTuto, id: nanoid() };
+//   setAddTutorial([...addTutorial, addNewTuto]);
+// };
