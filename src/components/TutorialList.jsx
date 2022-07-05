@@ -1,20 +1,7 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 
-const TutorialList = ({ tutorial }) => {
-  //? Test data
-  // let tutorials = [
-  //   {
-  //     id: 1,
-  //     title: "ReactJS",
-  //     description: "React is a JS-library for UI Design",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "HTML",
-  //     description: "HTML is a markup language",
-  //   },
-  // ];
+const TutorialList = ({ tutorial, apiDelete }) => {
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -38,7 +25,12 @@ const TutorialList = ({ tutorial }) => {
                 <td>{description}</td>
                 <td className="text-center">
                   <FaEdit size={20} className="me-3 text-warning " />
-                  <AiFillDelete size={22} className="text-danger" />
+                  <AiFillDelete
+                    size={22}
+                    className="text-danger"
+                    role="button"
+                    onClick={() => apiDelete(id)}
+                  />
                 </td>
               </tr>
             );

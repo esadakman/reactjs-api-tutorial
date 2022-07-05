@@ -7,6 +7,7 @@ const AddTutorial = ({ apiPost }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     apiPost({ title: myTitle, description: myDesc });
+    // ! submit işlemi sonrası inputları sıfırlamak için setterları sıfırladım
     setMyTitle("");
     setMyDesc("");
   };
