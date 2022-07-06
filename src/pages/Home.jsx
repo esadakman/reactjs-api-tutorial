@@ -35,7 +35,7 @@ const Home = () => {
     apiGet();
   };
   // !___________apiDelete____________
-  // ? parantez içinde kş değerle tıklanan butonun id'sini çağırdım
+  // ? parantez içinde ki değerle tıklanan butonun id'sini çağırdım
   const apiDelete = async (tutoId) => {
     try {
       // ! apide ilgili verimi silmek için linkimin sonuna tutorials'dan çağırdığım id'yi ekledim
@@ -48,12 +48,27 @@ const Home = () => {
     apiGet();
   };
 
+  // !___________apiPut________________
+  const apiEdit = async (id, title, desc) => {
+    console.log(title);
+    try {
+      await axios.put(`${url}/${id}`, { title, description: desc });
+    } catch (error) {
+      console.log(error);
+    }
+    apiGet();
+  };
+
   // console.log(addTutorial);
   return (
     <>
       <AddTutorial apiPost={apiPost} />
       {/* // ! tutorial'da yer alan verileri ekrana yazdırabilmek için props olarak TutorialList comp. una gönderdim */}
-      <TutorialList tutorial={tutorial} apiDelete={apiDelete} />
+      <TutorialList
+        tutorial={tutorial}
+        apiDelete={apiDelete}
+        apiEdit={apiEdit}
+      />
     </>
   );
 };

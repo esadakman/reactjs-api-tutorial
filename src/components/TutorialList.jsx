@@ -1,7 +1,8 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
+import EditTutorials from "./EditTutorials";
 
-const TutorialList = ({ tutorial, apiDelete }) => {
+const TutorialList = ({ tutorial, apiDelete, apiEdit }) => {
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -24,7 +25,14 @@ const TutorialList = ({ tutorial, apiDelete }) => {
                 <td>{title}</td>
                 <td>{description}</td>
                 <td className="text-center">
-                  <FaEdit size={20} className="me-3 text-warning " />
+                  <FaEdit
+                    size={20}
+                    className="me-3 text-warning "
+                    role="button"
+                    onClick={() =>
+                      apiEdit(id, "title edited", "desc edited too")
+                    }
+                  />
                   <AiFillDelete
                     size={22}
                     className="text-danger"
@@ -37,6 +45,7 @@ const TutorialList = ({ tutorial, apiDelete }) => {
           })}
         </tbody>
       </table>
+      <EditTutorials />
     </div>
   );
 };
