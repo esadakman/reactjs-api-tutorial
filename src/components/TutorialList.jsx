@@ -29,9 +29,12 @@ const TutorialList = ({ tutorial, apiDelete, apiEdit }) => {
                     size={20}
                     className="me-3 text-warning "
                     role="button"
-                    onClick={() =>
-                      apiEdit(id, "title edited", "desc edited too")
-                    }
+                    // ! edit kısmının çıkması için bootstram modal'ını çağırdım ve htmlde js kısmını import ettim
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-modal"
+                    // onClick={() =>
+                    //   apiEdit(id, "title edited", "desc edited too")
+                    // }
                   />
                   <AiFillDelete
                     size={22}
@@ -45,7 +48,7 @@ const TutorialList = ({ tutorial, apiDelete, apiEdit }) => {
           })}
         </tbody>
       </table>
-      <EditTutorials />
+      <EditTutorials apiEdit={apiEdit} />
     </div>
   );
 };
