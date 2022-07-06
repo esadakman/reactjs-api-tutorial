@@ -11,7 +11,7 @@ const Home = () => {
   const apiGet = async () => {
     try {
       const data = (await axios.get(url)).data;
-      console.log(data);
+      // console.log(data);
       // ! Apiden gelen verileri setter ile tutorial'ıma ekledim
       setTutorial(data);
     } catch (err) {
@@ -50,7 +50,7 @@ const Home = () => {
 
   // !___________apiPut________________
   const apiEdit = async (id, title, desc) => {
-    console.log(title);
+    console.log(desc);
     try {
       await axios.put(`${url}/${id}`, { title, description: desc });
     } catch (error) {

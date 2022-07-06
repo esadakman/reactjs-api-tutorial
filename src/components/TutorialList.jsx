@@ -1,8 +1,12 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import EditTutorials from "./EditTutorials";
+import { useState } from "react";
 
 const TutorialList = ({ tutorial, apiDelete, apiEdit }) => {
+  // ! EditTutorials componentine id ve diğer bilgileri göndermek için useState'i kullandım ve ilgili yerin bilgilerini setter'la alıp, props halinde EditTutorials'a gönderdim
+  const [editItem, setEditItem] = useState("");
+
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -32,9 +36,8 @@ const TutorialList = ({ tutorial, apiDelete, apiEdit }) => {
                     // ! edit kısmının çıkması için bootstram modal'ını çağırdım ve htmlde js kısmını import ettim
                     data-bs-toggle="modal"
                     data-bs-target="#edit-modal"
-                    // onClick={() =>
-                    //   apiEdit(id, "title edited", "desc edited too")
-                    // }
+                    // ? butona basıldığında ilgili yerin bilgilerini map'de kullandığımız "item" la editItem'a, ordanda editItemrials componentine göndermiş oluyorum
+                    onClick={() => setEditItem(item)}
                   />
                   <AiFillDelete
                     size={22}
@@ -48,7 +51,7 @@ const TutorialList = ({ tutorial, apiDelete, apiEdit }) => {
           })}
         </tbody>
       </table>
-      <EditTutorials apiEdit={apiEdit} />
+      <EditTutorials apiEdit={apiEdit} editItem={editItem} />
     </div>
   );
 };
