@@ -8,7 +8,7 @@ const TutorialList = ({ tutorial, apiDelete, apiEdit }) => {
   const [editItem, setEditItem] = useState("");
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 tuto">
       <table className="table table-striped">
         <thead>
           <tr>

@@ -50,7 +50,6 @@ const Home = () => {
 
   // !___________apiPut________________
   const apiEdit = async (id, title, desc) => {
-    console.log(desc);
     try {
       await axios.put(`${url}/${id}`, { title, description: desc });
     } catch (error) {
@@ -58,8 +57,6 @@ const Home = () => {
     }
     apiGet();
   };
-
-  // console.log(addTutorial);
   return (
     <>
       <AddTutorial apiPost={apiPost} />

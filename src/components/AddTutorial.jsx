@@ -13,7 +13,7 @@ const AddTutorial = ({ apiPost }) => {
   };
 
   return (
-    <div className="container text-center mt-4">
+    <div className="container text-center mt-4 addTuto">
       <h1 className="display-6 text-danger">Add Your Tutorial</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
