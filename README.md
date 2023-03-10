@@ -8,7 +8,8 @@ Build a API Tutorial using ReactJS.
 
 - Project aims to create a API Tutorial App.
 
-- In this project, I made CRUD operations using the real API. You can add, delete or edit new entries in the list. API is provided by Clarusway.
+- In this project, I made CRUD operations using the real API. You can add, delete or edit new entries in the list. Due to Heroku's transition to a paid system, the API that I have been performing CRUD operations on is no longer suitable. You can still access my website, but the actions you take will not be possible because the API is not active.
+
 
 ## Project Link
 
